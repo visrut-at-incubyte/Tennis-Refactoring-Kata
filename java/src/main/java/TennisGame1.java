@@ -23,24 +23,19 @@ public class TennisGame1 implements TennisGame {
         int tempScore=0;
         if (m_score1==m_score2)
         {
-            switch (m_score1)
-            {
-                case 0:
-                        return "Love-All";
-                case 1:
-                        return "Fifteen-All";
-                case 2:
-                        return "Thirty-All";
-                default:
-                        return "Deuce";
-            }
+            return switch (m_score1) {
+                case 0 -> "Love-All";
+                case 1 -> "Fifteen-All";
+                case 2 -> "Thirty-All";
+                default -> "Deuce";
+            };
         }
         else if (m_score1>=4 || m_score2>=4)
         {
-            int minusResult = m_score1-m_score2;
-            if (minusResult==1) score ="Advantage player1";
-            else if (minusResult ==-1) score ="Advantage player2";
-            else if (minusResult>=2) score = "Win for player1";
+            int scoreDifference = m_score1-m_score2;
+            if (scoreDifference ==1) score ="Advantage player1";
+            else if (scoreDifference ==-1) score ="Advantage player2";
+            else if (scoreDifference >=2) score = "Win for player1";
             else score ="Win for player2";
         }
         else
